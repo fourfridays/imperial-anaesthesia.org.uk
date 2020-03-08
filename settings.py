@@ -46,6 +46,7 @@ aldryn_addons.settings.load(locals())
 INSTALLED_APPS.extend([
     'pages',
     
+    'wagtail.contrib.table_block',
 ])
 
 # To see the settings that have been applied, use the Django diffsettings 
