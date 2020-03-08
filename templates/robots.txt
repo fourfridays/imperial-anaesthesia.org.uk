@@ -1,0 +1,5 @@
+User-agent: *
+
+Disallow: /admin/
+Disallow: /django-admin/
+Sitemap: https://imperial-anaesthesia.org.uk//sitemap.xml
