@@ -105,6 +105,9 @@ nav {
     img {
         max-width: 100%;
         height: auto;
+        &.right {
+            @extend .float-right;
+        }
     }
 }
 
