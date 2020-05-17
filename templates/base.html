@@ -8,7 +8,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>{% block title %}{% if self.seo_title == 'Home' %}Imperial School of Anaesthesia{% elif self.seo_title %}{{ self.seo_title }} | Imperial School of Anaesthesia{% else %}{{ self.title }} | Imperial School of Anaesthesia{% endif %}{% endblock %}</title>
+        <title>{% block title %}{% if self.seo_title == 'Imperial School of Anaesthesia' %}{% elif self.seo_title %}{{ self.seo_title }} | Imperial School of Anaesthesia{% else %}{{ self.title }} | Imperial School of Anaesthesia{% endif %}{% endblock %}</title>
 
         {% if self.search_description %}
             <meta name="description" content="{{ self.search_description }}" />
