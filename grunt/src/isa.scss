@@ -7,7 +7,7 @@ $text-brand: rgba(122, 104, 132, 1);
 $secondary: rgba(102, 153, 153, 1);
 .text-brand { color: $text-brand; }
 $white: #fff;
-$body-text: rgba(153, 153, 153, 1);
+$body-text: rgba(68, 68, 68, 1);
 $enable-responsive-font-sizes: true;
 
 @import '../node_modules/bootstrap/scss/bootstrap';
@@ -77,6 +77,26 @@ nav {
 /*===============================
 =            CONTENT            =
 ===============================*/
+/* Main Background */
+#wrap-background {
+    height: 250px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url('/static/images/background.jpg');
+    #wrap-title {
+        position: absolute;
+        top: 160px;
+        left: 80px;
+        h1 {
+            font-size: 3.4em;
+        }
+        h2 {
+            font-size: 1.7em;
+        }
+    }
+}
+
 /* Blocks */
 .rich-text {
     p {
