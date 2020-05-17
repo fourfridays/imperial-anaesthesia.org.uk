@@ -24,15 +24,6 @@ class AlignedRAWHTMLBlock(StructBlock):
         template = 'blocks/aligned_raw_html_block.html'
 
 
-class BackgroundColorBlock(FieldBlock):
-    field = forms.ChoiceField(choices=(
-        ('normal', 'Normal'), 
-        ('white-smoke', 'White Smoke'),
-        ('aqua-island', 'Aqua Island'),
-        ('concrete', 'Concrete')
-    ))
-
-
 class ButtonBlock(StructBlock):
     alignment = AlignmentBlock(default='left')
     size = ChoiceBlock([
@@ -56,6 +47,7 @@ class ButtonBlock(StructBlock):
     class Meta:
         icon = 'pick'
         template = 'blocks/button_block.html'
+
 
 class IconBlock(StructBlock):
     icon = ChoiceBlock([
@@ -157,7 +149,6 @@ class BaseStreamBlock(StreamBlock):
 class SingleColumnBlock(StructBlock):
     column = BaseStreamBlock()
     alignment = AlignmentBlock(default='left')
-    background_color = BackgroundColorBlock()
 
     class Meta:
         label = 'Single Column'
@@ -168,7 +159,6 @@ class TwoColumnBlock(StructBlock):
     left_column = BaseStreamBlock()
     right_column = BaseStreamBlock()
     alignment = AlignmentBlock(default='left')
-    background_color = BackgroundColorBlock()
 
     class Meta:
         label = 'Two Columns'
@@ -180,7 +170,6 @@ class ThreeColumnBlock(StructBlock):
     middle_column = BaseStreamBlock()
     right_column = BaseStreamBlock()
     alignment = AlignmentBlock(default='left')
-    background_color = BackgroundColorBlock()
 
     class Meta:
         label = 'Three Columns'
@@ -193,7 +182,6 @@ class FourColumnBlock(StructBlock):
     right_column_1 = BaseStreamBlock()
     right_column_2 = BaseStreamBlock()
     alignment = AlignmentBlock(default='left')
-    background_color = BackgroundColorBlock()
 
     class Meta:
         label = 'Four Columns'
