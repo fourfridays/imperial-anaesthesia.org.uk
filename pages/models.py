@@ -11,15 +11,6 @@ from .blocks import ImageGridBlock, SingleColumnBlock, TwoColumnBlock, ThreeColu
 
 
 class StandardPage(Page):
-    # Hero section of Page
-    hero_image = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+',
-        help_text='2400X858px'
-    )
     body = StreamField([
         ('single_column', SingleColumnBlock(group='COLUMNS')),
         ('two_columns', TwoColumnBlock(group='COLUMNS')),
@@ -29,6 +20,5 @@ class StandardPage(Page):
     ],default='')
 
     content_panels = Page.content_panels + [
-        ImageChooserPanel('hero_image'),
         StreamFieldPanel('body'),
     ]

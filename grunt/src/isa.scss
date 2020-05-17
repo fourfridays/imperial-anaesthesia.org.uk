@@ -89,29 +89,6 @@ nav {
 }
 
 
-/* Hero Images */
-.hero-image figure {
-    position: relative; 
-    width: 100%; /* for IE 6 */
-    figcaption {
-        max-width: 45%;
-        background-color: rgba(164, 63, 51, 0.82);
-        position: absolute;
-        top: 65%;
-        left: 10%;  
-        transform: translate(-10%, -65%);
-        h2 {
-            color: #f0f0f0;
-            font-size: 1.4rem;
-            letter-spacing: -0.03rem;
-        }
-        small {
-            color: #d2d2d2;
-        }
-    }
-}
-
-
 /*==============================
 =            FOOTER            =
 ==============================*/
@@ -145,19 +122,7 @@ footer {
 @media (min-width: 768px) and (max-width: 979px) {  }
  
 /* Landscape phone to portrait tablet */
-@media (max-width: 767px) {
-    /* HERO IMAGES */
-    .hero-image figure {
-        figcaption {
-            h2 {
-                font-size: 1.2rem;
-            }
-            p {
-                font-size: 0.78rem;
-            }
-        }
-    }
-}
+@media (max-width: 767px) { }
 
 /* Landscape phones and down */
 @media (max-width: 525px) {
@@ -166,20 +131,5 @@ footer {
     }
     .table {
         font-size: 0.82rem;
-    }
-    /* HERO IMAGE */
-    .hero-image figure {
-        figcaption {
-            max-width: 55%;
-            h2 {
-                font-size: 0.9rem;
-            }
-            p {
-                line-height: 0.7rem;
-            }
-        }
-        .photo-credit {
-            font-size: 0.7rem;
-        }
     }
 }
