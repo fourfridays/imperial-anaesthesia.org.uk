@@ -45,6 +45,7 @@ aldryn_addons.settings.load(locals())
 
 INSTALLED_APPS.extend([
     'pages',
+    'taxonomy',
     
     'wagtail.contrib.table_block',
 ])
