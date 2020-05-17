@@ -11,7 +11,7 @@ from .blocks import ImageGridBlock, SingleColumnBlock, TwoColumnBlock, ThreeColu
 
 
 class StandardPage(Page):
-    page_subtitle = models.TextField(max_length=160, blank=True)
+    page_subtitle = models.TextField(max_length=255, blank=True)
     body = StreamField([
         ('single_column', SingleColumnBlock(group='COLUMNS')),
         ('two_columns', TwoColumnBlock(group='COLUMNS')),
