@@ -33,7 +33,15 @@
             {% endblock header %}
         </header>
 
-        <main class="my-sm-4" role="main">
+        <main role="main">
+            <div id="wrap-background">
+                <div id="wrap-title" class="text-white p-2">
+                    <h1 class="mb-0">{{ self.seo_title }}</h1>
+                    {% if self.page_subtitle %}
+                        <h2>{{ self.page_subtitle }}</h2>
+                    {% endif %}
+                </div>
+            </div>
             {% block content %}
             {% endblock content %}
         </main>

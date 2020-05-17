@@ -1,7 +1,7 @@
 from django.db import models
 
 from wagtail.admin.edit_handlers import (
-    StreamFieldPanel,
+    StreamFieldPanel, FieldPanel
 )
 from wagtail.core.fields import StreamField
 from wagtail.core.models import Page
@@ -11,6 +11,7 @@ from .blocks import ImageGridBlock, SingleColumnBlock, TwoColumnBlock, ThreeColu
 
 
 class StandardPage(Page):
+    page_subtitle = models.TextField(max_length=160, blank=True)
     body = StreamField([
         ('single_column', SingleColumnBlock(group='COLUMNS')),
         ('two_columns', TwoColumnBlock(group='COLUMNS')),
@@ -20,5 +21,6 @@ class StandardPage(Page):
     ],default='')
 
     content_panels = Page.content_panels + [
+        FieldPanel('page_subtitle'),
         StreamFieldPanel('body'),
     ]
