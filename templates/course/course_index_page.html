@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block title %}Courses | {{ request.site.site_name }}{% endblock %}
+
+{% block content %}
+    <h1 class="bg-lian-gold text-center text-uppercase my-3">Courses</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="row col-12">
+                <a class="mx-2" href="submit-course/">Submit a Course</a>
+            </div>
+
+            <!-- Job Listings -->
+            {% for course in courses %}
+            <div class="job-search-results col-12">
+                <div class="row col-12">
+                    <div class="col-12 col-lg-9">
+                        <h2 class="float-left mx-3 mt-3"><a style="font-size: 99%">Title:</a><small><a style="font-size: 88%"> {{ course.title }}</a></small></h2>
+                    </div>
+                    <hr>
+                    <div class="col-12 col-lg-9">
+                        <h3 class="float-left mx-3"><a style="font-size: 99%">Company:</a><small><a style="font-size: 88%"> {{ course.slug }}</a></small></h3>
+                    </div>
+                    <div class="col-12 col-lg-9">
+                        <p class="float-left mx-3">{{ course.summary }}</p>
+                    </div>
+                </div>
+                <div class="col-9 mx-3">
+                    <p class="small mb-3"><a class="btn btn-primary btn-sm" href="{{ course.slug }}/" aria-label="More Info">More Info</a></p>
+                </div>
+                <div class="row border-top">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

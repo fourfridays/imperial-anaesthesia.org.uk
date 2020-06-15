@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-3">
+                <h1 class="text-center text-uppercase my-3">Submit a Course</h1>
+
+                <p>Please complete the form below using the prompts, then click Post at the bottom of the form to register your advert.</p>
+
+                <p>The website team will then review your advert and either publish it to the website or get in touch with you to make changes - so please ensure the contact details are correct.</p>
+
+                <form id="general-inquiry-form" action="/courses/submit-course/" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input id="website" name="website" type="text" value="" aria-label="If you are a human, do not fill in this field." style="display:none;">
+
+                    <div class="bg-brand-light p-4 my-4">
+                        <h2 class="brand">Main Details</h2>
+
+                        <p>Enter the title of the course/conference, then add a short, punchy summary to introduce the post</p>
+
+                        <p>If there is a separate website where trainees can apply for the course, enter the web address in the <strong>URL</strong> field</p>
+
+                        <p><strong>Please do not use the dates, location, contact details or flyer here - use the dedicated sections further down</strong></p>
+
+                        <div class="form-group"><label>Title</label>
+                            <input class="form-control" name="title" type="text" required="">
+                        </div>
+                        <div class="form-group"><label>Summary</label>
+                            <textarea class="form-control" name="summary" rows="3" style="resize:none"></textarea>
+                        </div>
+                        <div class="form-group"><label>URL</label>
+                            <input class="form-control" name="external_url" type="text" >
+                        </div>
+
+                        <p>Enter the main details in the box below. You can leave this blank if you upload a flyer below (PDF/GIF/JPG/PNG format only)</p>
+
+                        <div class="form-group"><label>Description</label>
+                            <textarea class="form-control" name="description" rows="5" style="resize:none"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-light p-4 my-4">
+                        <h2 class="brand">Date & Time</h2>
+
+                        <div class="form-group">
+                            <div class='input-group date' id='date'>
+                                <input type='date' name='date' class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-light p-4 my-4">
+                        <h2 class="brand">Location</h2>
+
+                        <div class="form-group">
+                            <label id="post_location_label" for="post_location">Location</label>
+                            <select class="form-control" name="location" id="post_location" style="width:50%">
+                                <option>(select location)</option>
+                                <option  value="AAGBI (21 Portland Place, London)">AAGBI (21 Portland Place, London)</option>
+                                <option  value="Addenbrookes Hospital (Cambridge University Hospital NHS Trust, Cambridge, )">Addenbrookes Hospital (Cambridge University Hospital NHS Trust, Cambridge, )</option>
+                                <option  value="Beaufort House (354 Kings Road, Chelsea, London)">Beaufort House (354 Kings Road, Chelsea, London)</option>
+                                <option  value="Bentham B01 Main Lecture Theatre -  (Bentham House, Faculty of Laws, UCL. 4-8 Endsleigh Gardens. London )">Bentham B01 Main Lecture Theatre -  (Bentham House, Faculty of Laws, UCL. 4-8 Endsleigh Gardens. London )</option>
+                                <option  value="Brunei Gallery, SOAS, ( Russell Square )">Brunei Gallery, SOAS, ( Russell Square )</option>
+                                <option  value="Business Design Centre (52 Upper Street, Islington)">Business Design Centre (52 Upper Street, Islington)</option>
+                                <option  value="Cambridge Simulation Centre, The (Addenbrookes Postgraduate Medical Centre, Box 111,  Hills Road, Cambridge )">Cambridge Simulation Centre, The (Addenbrookes Postgraduate Medical Centre, Box 111,  Hills Road, Cambridge )</option>
+                                <option  value="Central Middlesex Hospital (Acton Lane, Park Royal, London )">Central Middlesex Hospital (Acton Lane, Park Royal, London )</option>
+                                <option  value="Chancellors hall (Senate House, Malet Street, London )">Chancellors hall (Senate House, Malet Street, London )</option>
+                                <option  value="Chandos House (London)">Chandos House (London)</option>
+                                <option  value="Charing Cross Hospital (Fulham Palace Road, Hammersmith, London)">Charing Cross Hospital (Fulham Palace Road, Hammersmith, London)</option>
+                                <option  value="Chelsea &amp; Westminster (369 Fulham Road, Fulham, London)">Chelsea &amp; Westminster (369 Fulham Road, Fulham, London)</option>
+                                <option  value="Clinical Skills and Simulation Centre, Royal Brompton Hospital (South Parade, London)">Clinical Skills and Simulation Centre, Royal Brompton Hospital (South Parade, London)</option>
+                                <option  value="Crabtree Pub, The (Rainville Road, London)">Crabtree Pub, The (Rainville Road, London)</option>
+                                <option  value="Croydon Hospital (530 London Rd, Croydon, Surrey )">Croydon Hospital (530 London Rd, Croydon, Surrey )</option>
+                                <option  value="Cruciform Building, UCL (Gower Street London)">Cruciform Building, UCL (Gower Street London)</option>
+                                <option  value="Dukes Meadows (Dan Mason Drive, Chiswick)">Dukes Meadows (Dan Mason Drive, Chiswick)</option>
+                                <option  value="Ealing Hospital (Uxbridge Road, Southall, Middlesex)">Ealing Hospital (Uxbridge Road, Southall, Middlesex)</option>
+                                <option  value="Ealing Trailfinders (Vallis Way Ealing)">Ealing Trailfinders (Vallis Way Ealing)</option>
+                                <option  value="East Surrey Hospital (Canada Ave, Redhill, Surrey)">East Surrey Hospital (Canada Ave, Redhill, Surrey)</option>
+                                <option  value="Edinburgh International Conference Centre (The Exchange Edinburgh, 150 Morrison St, Edinburgh)">Edinburgh International Conference Centre (The Exchange Edinburgh, 150 Morrison St, Edinburgh)</option>
+                                <option  value="Education Centre, Royal London (Turner Street)">Education Centre, Royal London (Turner Street)</option>
+                                <option  value="ETC Venues (Maple House 150 Corporation Streeet Birmingham)">ETC Venues (Maple House 150 Corporation Streeet Birmingham)</option>
+                                <option  value="Events Centre, Stewart House (32 Russell Square, London)">Events Centre, Stewart House (32 Russell Square, London)</option>
+                                <option  value="ExCel Centre (Royal Victoria Dock, 1 Western Gateway, London )">ExCel Centre (Royal Victoria Dock, 1 Western Gateway, London )</option>
+                                <option  value="Friends House (London, )">Friends House (London, )</option>
+                                <option  value="Grand Connaught Rooms (Great Queen Street, Holborn)">Grand Connaught Rooms (Great Queen Street, Holborn)</option>
+                                <option  value="Grand Connaught Rooms (London)">Grand Connaught Rooms (London)</option>
+                                <option  value="Great Ormond Street Hospital (Great Ormond Street, London)">Great Ormond Street Hospital (Great Ormond Street, London)</option>
+                                <option  value="Guy's Hospital (Great Maze Pond London )">Guy's Hospital (Great Maze Pond London )</option>
+                                <option  value="Hammersmith Hospital (Du Cane Road, East Acton, London)">Hammersmith Hospital (Du Cane Road, East Acton, London)</option>
+                                <option  value="Harefield (Hill End Road, Harefield, Middlesex)">Harefield (Hill End Road, Harefield, Middlesex)</option>
+                                <option  value="HESL (Stewart House 32 Russell Square London)">HESL (Stewart House 32 Russell Square London)</option>
+                                <option  value="Hillingdon Hospital (Pield Heath Road, Hillingdon, Middlesex)">Hillingdon Hospital (Pield Heath Road, Hillingdon, Middlesex)</option>
+                                <option  value="HILTON METROPOLE  (LONDON)">HILTON METROPOLE  (LONDON)</option>
+                                <option  value="Holiday Inn (Coram Street London)">Holiday Inn (Coram Street London)</option>
+                                <option  value="Hong Kong Conference &amp; Exhibition Centre (1 Expo Drive, Wanchai, Hong Kong, China)">Hong Kong Conference &amp; Exhibition Centre (1 Expo Drive, Wanchai, Hong Kong, China)</option>
+                                <option  value="Imperial College Lecture Theatre (Norfolk Place London)">Imperial College Lecture Theatre (Norfolk Place London)</option>
+                                <option  value="Institute for Sports Exercise and Health (170 Tottenham Court Road)">Institute for Sports Exercise and Health (170 Tottenham Court Road)</option>
+                                <option  value="Institute of Education (20 Bedford Way, London)">Institute of Education (20 Bedford Way, London)</option>
+                                <option  value="John McIntyre Conference Centre, Edinburgh, The (Edinburgh)">John McIntyre Conference Centre, Edinburgh, The (Edinburgh)</option>
+                                <option  value="John Radcliffe Hospital (Headley Way, Oxford)">John Radcliffe Hospital (Headley Way, Oxford)</option>
+                                <option  value="Keele Univeristy (Staffordshire)">Keele Univeristy (Staffordshire)</option>
+                                <option  value="Kings College Hospital, ( Denmark Hill, London, )">Kings College Hospital, ( Denmark Hill, London, )</option>
+                                <option  value="Lister Hospital (Coreys Mill Lane, Stevenage, Hertfordshire)">Lister Hospital (Coreys Mill Lane, Stevenage, Hertfordshire)</option>
+                                <option  value="Lyric Theatre (Roof top bar) (King Street Hammersmith)">Lyric Theatre (Roof top bar) (King Street Hammersmith)</option>
+                                <option  value="Manchester Central Library (St Peter's Square)</">Manchester Central Library (St Peter's Square)</option><
+                                option  value="Manchester Town Hall (Manchester)">Manchester Town Hall (Manchester)</option>
+                                <option  value="Mary Cochrane Lecture Theatre (Education Centre Charing Cross Hospital Fulham Palace Road)">Mary Cochrane Lecture Theatre (Education Centre Charing Cross Hospital Fulham Palace Road)</option>
+                                <option  value="Mary Cochrane Lecture Theatre (Charing Cross Hospital Fulham Palace Road)">Mary Cochrane Lecture Theatre (Charing Cross Hospital Fulham Palace Road)</option>
+                                <option  value="Mary Ward House ( 5-7 Tavistock Place, London )">Mary Ward House ( 5-7 Tavistock Place, London )</option>
+                                <option  value="Mermaid Conference Centre (Puddle Dock Blackfriars London)">Mermaid Conference Centre (Puddle Dock Blackfriars London)</option>
+                                <option  value="Moorfields Hospital (162 City Road, London)">Moorfields Hospital (162 City Road, London)</option>
+                                <option  value="National Heart &amp; Lung Institute (Kensington)">National Heart &amp; Lung Institute (Kensington)</option>
+                                <option  value="National Hospital for Neurology and Neurosurgery (Queen's Square, London)">National Hospital for Neurology and Neurosurgery (Queen's Square, London)</option>
+                                <option  value="NHS Blood and Transplant,  (Colindale, Charcot Road,  Colindale, )">NHS Blood and Transplant,  (Colindale, Charcot Road,  Colindale, )</option>
+                                <option  value="Northwick Park Hospital (Watford Road, Harrow, Middlesex)">Northwick Park Hospital (Watford Road, Harrow, Middlesex)</option>
+                                <option  value="Nottingham Conference Centre (Burton Street Nottingham)">Nottingham Conference Centre (Burton Street Nottingham)</option>
+                                <option  value="Peter Samuel Hall (Medical School Royal Free Hospital London)">Peter Samuel Hall (Medical School Royal Free Hospital London)</option>
+                                <option  value="Postgraduate Medical Institute, Anglia Ruskin University,  (Bishop Hall Lane, Chelmsford,)">Postgraduate Medical Institute, Anglia Ruskin University,  (Bishop Hall Lane, Chelmsford,)</option>
+                                <option  value="Queen Charlotte's Hospital (Du Cane Road, East Acton, London)">Queen Charlotte's Hospital (Du Cane Road, East Acton, London)</option>
+                                <option  value="Queen Elizabeth II Hospital (Howlands, Welwyn Garden City, Hertfordshire)">Queen Elizabeth II Hospital (Howlands, Welwyn Garden City, Hertfordshire)</option>
+                                <option  value="Royal Brompton (Sydney Street, Chelsea, London)">Royal Brompton (Sydney Street, Chelsea, London)</option>
+                                <option  value="Royal College of Anaesthetists (Churchill House, 35 Red Lion Square, London)">Royal College of Anaesthetists (Churchill House, 35 Red Lion Square, London)</option>
+                                <option  value="Royal College of Physicians (11 St Andrews Place, London)">Royal College of Physicians (11 St Andrews Place, London)</option>
+                                <option  value="Royal College of Surgeons (35-43 Lincoln's Inn Fields, London)">Royal College of Surgeons (35-43 Lincoln's Inn Fields, London)</option>
+                                <option  value="Royal Free Hospital (Pond Street Hampstead)">Royal Free Hospital (Pond Street Hampstead)</option>
+                                <option  value="Royal Horseguards, The (2 Whitehall Court] London)">Royal Horseguards, The (2 Whitehall Court] London)</option>
+                                <option  value="Royal Institution, The (21 Albemarle Street, London )">Royal Institution, The (21 Albemarle Street, London )</option>
+                                <option  value="Royal London Hospital (Whitechapel Road, London )">Royal London Hospital (Whitechapel Road, London )</option>
+                                <option  value="Royal Marsden Hospital (Fulham Road, Fulham, London)">Royal Marsden Hospital (Fulham Road, Fulham, London)</option>
+                                <option  value="Royal National Orthopaedic Hospital (Brockley Hill, Stanmore, London)">Royal National Orthopaedic Hospital (Brockley Hill, Stanmore, London)</option>
+                                <option  value="Royal National Throat Nose &amp; Ear (330 Grays Inn Road, London)">Royal National Throat Nose &amp; Ear (330 Grays Inn Road, London)</option>
+                                <option  value="Royal Society of Medicine (1 Wimpole Street, London)">Royal Society of Medicine (1 Wimpole Street, London)</option>
+                                <option  value="Senate House ( University of London, Malet St, Bloomsbury, )">Senate House ( University of London, Malet St, Bloomsbury, )</option>
+                                <option  value="Senate House (Malet Street, London)">Senate House (Malet Street, London)</option>
+                                <option  value="St George's Hospital (Blackshaw Road, Tooting, London)">St George's Hospital (Blackshaw Road, Tooting, London)</option>
+                                <option  value="St Mary's Hospital (Praed Street, Paddington, London)">St Mary's Hospital (Praed Street, Paddington, London)</option>
+                                <option  value="St Paul's Church,  (London)">St Paul's Church,  (London)</option>
+                                <option  value="St Thomas' Hospital (Westminster Bridge Road, London)">St Thomas' Hospital (Westminster Bridge Road, London)</option>
+                                <option  value="Stewart House (Rooms 11-13, First Floor, Stewart House, 32 Russell Square, London )">Stewart House (Rooms 11-13, First Floor, Stewart House, 32 Russell Square, London )</option>
+                                <option  value="The Cambridge Simulation Centre (Addenbrookes Postgraduate Medical Centre, Box 111,  Hills Road, Cambridge )">The Cambridge Simulation Centre (Addenbrookes Postgraduate Medical Centre, Box 111,  Hills Road, Cambridge )</option>
+                                <option  value="The Crabtree Pub (Rainville Road, London)">The Crabtree Pub (Rainville Road, London)</option>
+                                <option  value="The John McIntyre Conference Centre, Edinburgh (Edinburgh)">The John McIntyre Conference Centre, Edinburgh (Edinburgh)</option>
+                                <option  value="The Royal Horseguards (2 Whitehall Court] London)">The Royal Horseguards (2 Whitehall Court] London)</option>
+                                <option  value="The Royal Institution (21 Albemarle Street, London )">The Royal Institution (21 Albemarle Street, London )</option>
+                                <option  value="Tigne  (Les Almes,France)">Tigne  (Les Almes,France)</option>
+                                <option  value="Trent Vineyard Conference Centre (Trent Vineyard Conference Centre, Unit 1, Easter Park, Lenton Lane, Nottingham, )">Trent Vineyard Conference Centre (Trent Vineyard Conference Centre, Unit 1, Easter Park, Lenton Lane, Nottingham, )</option>
+                                <option  value="UCH Education Centre (London)">UCH Education Centre (London)</option>
+                                <option  value="UCL (Gower St)">UCL (Gower St)</option>
+                                <option  value="UCLH (250 Euston Road)">UCLH (250 Euston Road)</option>
+                                <option  value="University of Manchester (Renold Building, Altrincham Street, Manchester)">University of Manchester (Renold Building, Altrincham Street, Manchester)</option>
+                                <option  value="University of Manchester (Salford Royal NHS Foundation Trust)">University of Manchester (Salford Royal NHS Foundation Trust)</option>
+                                <option  value="Watford Hospital (Vicarage Road, Watford, Hertfordshire)">Watford Hospital (Vicarage Road, Watford, Hertfordshire)</option>
+                                <option  value="Wellcome Trust Headquarters (London)">Wellcome Trust Headquarters (London)</option>
+                                <option  value="Wesley Hotel, ( Euston House 81-103 Euston Street, London, 19-20th September 2017 Programme Approved)">Wesley Hotel, ( Euston House 81-103 Euston Street, London, 19-20th September 2017 Programme Approved)</option>
+                                <option  value="West Middlesex Hospital (Isleworth, Middlesex)">West Middlesex Hospital (Isleworth, Middlesex)</option>
+                                <option  value="Weston Education Centre (Kings College Hospital, Denmark Hill, London )">Weston Education Centre (Kings College Hospital, Denmark Hill, London )</option>
+                                <option  value="Whipps Cross University Hospita (London)">Whipps Cross University Hospita (London)</option>
+                                <option  value="Whittington Hospital (Magdala Avenue, London)">Whittington Hospital (Magdala Avenue, London)</option>
+                            </select>
+                            
+                            <br><br><label id="post_locationtext_label" for="post_locationtext">Other</label>
+                            <input type="text" size="35" value="" id="post_locationtext">          
+                            <div id="post_location_help" class="validation"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-light p-4 my-4">
+                        <h2 class="brand">Files/Downloads</h2>
+
+                        <p>Click <strong>Select file</strong> to upload. <strong>Maximum file size is 4Mb</strong></p>
+
+                        <p>You can upload Office documents but please try and use PDFs where possible.</p>
+
+                        <p>If you have entered a web address to apply for your event, then you do not need to upload a separate application form here - the website will display the link as an 'Apply Online' button</p>
+
+                        <div class="form-group">
+                            <label for="flyer">Flyer:</label> 
+                            <input class="form-control" type="file" name="flyer" id="flyer">
+                        </div>
+                        <div class="form-group">
+                            <label for="application_form">Application Form:</label> 
+                            <input class="form-control" type="file" name="application_form" id="application_form">
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-light p-4 my-4">
+                        <h2 class="brand">Contact Details</h2>
+
+                        <p>Enter a valid name and email address</p>
+
+                        <div class="form-group"><label>Name</label>
+                            <input class="form-control" name="name" type="text" required="">
+                        </div>
+                        <div class="form-group"><label>E-mail</label>
+                            <input class="form-control" name="email" type="email" required="">
+                        </div>
+                    </div>
+
+                    <button id="general-inquiry-submit" class="btn btn-primary" type="submit" name="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
