@@ -84,6 +84,9 @@ class Node(MP_Node):
         else:
             super().delete()
 
+    def get_department_categories():
+        return {'pk__in': Node.objects.get(name='Department').get_children().values_list('id', flat=True)}
+
     def __str__(self):
         return self.name
 
