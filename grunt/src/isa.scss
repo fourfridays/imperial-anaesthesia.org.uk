@@ -1,11 +1,15 @@
 /*===========================================
 =            BOOTSTRAP VARIABLES            =
 ===========================================*/
-// Dark Red
-$brand: rgba(239, 236, 240, 1);
-$text-brand: rgba(122, 104, 132, 1);
+// Purple
+$brand: rgba(122, 104, 132, 1);
+.brand { color: $brand; }
+.bg-brand { background-color: $brand; }
+$brand-light: rgba(239, 236, 240, 1);
+.brand-light { color: $brand-light; }
+.bg-brand-light { background-color: $brand-light; }
+// Aqua
 $secondary: rgba(102, 153, 153, 1);
-.text-brand { color: $text-brand; }
 $white: #fff;
 $body-text: rgba(68, 68, 68, 1);
 $enable-responsive-font-sizes: true;
@@ -49,17 +53,15 @@ a {
 =            HEADER            =
 ==============================*/
 nav {
-    &.bg-dark {
-        background-color: $brand !important;
-    }
     &.navbar {
-        a {   
+        a {
             &:hover {
                 background-color: $secondary !important;  
             }
         }
         li {
             a {
+                color: $brand !important;
                 &:hover {
                     background-color: $secondary !important;
                     color: $white !important;
@@ -89,7 +91,7 @@ nav {
         top: 160px;
         left: 80px;
         h1 {
-            font-size: 3.4em;
+            font-size: 2.4em;
         }
         h2 {
             font-size: 1.5em;
@@ -99,9 +101,6 @@ nav {
 
 /* Blocks */
 .rich-text {
-    p {
-        font-size: 0.9rem;
-    }
     img {
         max-width: 100%;
         height: auto;
@@ -116,18 +115,14 @@ nav {
 =            FOOTER            =
 ==============================*/
 footer {
-    background-color: $brand;
     font-size: 0.87rem;
     overflow: hidden;
     ul {
-        h6 {
-            color: $text-brand;
-        }
         li {
             a {
                 color: $body-text;
                 &:hover {
-                    color: $text-brand;
+                    color: $brand;
                 }
             }
         }
