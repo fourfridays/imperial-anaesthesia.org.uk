@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags wagtailimages_tags static %}
+
+
+{% block content %}
+    <div class="container my-4">
+        {% for person in people %}
+            <div class="row">
+                <div class="col-4 col-lg-2">
+                    {% if person.image %}
+                        {% image person.image fill-150x184-c100 as person_image %}
+                        <figure>
+                            <img class="rounded img-fluid img-thumbnail" src="{{ person_image.url }}" alt="{{ page.image.title }}"/>
+                        </figure>
+                    {% endif %}
+                </div>
+
+                <div class="col-8 col-lg-8"> 
+                    <h3 class="bg-brand-light p-2">{{ person.first_name }} {{ person.last_name }}</h3>
+                    <h6>{{ person.role }}</h6>
+                    <p>{{ person.bio }}</p>
+                </div>
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+{% endblock %}
