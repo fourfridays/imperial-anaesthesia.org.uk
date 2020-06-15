@@ -54,11 +54,6 @@ a {
 ==============================*/
 nav {
     &.navbar {
-        a {
-            &:hover {
-                background-color: $secondary !important;  
-            }
-        }
         li {
             a {
                 color: $brand !important;
