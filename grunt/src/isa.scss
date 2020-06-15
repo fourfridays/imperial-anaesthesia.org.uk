@@ -36,10 +36,10 @@ a {
 }
 
 .btn-primary {
-    background-color: $body-text;
+    background-color: $brand;
     color: $white !important;
     &:hover {
-        background-color: $brand;
+        background-color: $secondary;
     }
 }
 
